@@ -1,0 +1,17 @@
+<h1>Edit Your Profile</h1>
+
+<%= image_tag @user.avatar.thumb.to_s %>
+
+  <%= form_for @user, html: { multipart: true } do |form| %>
+	
+  	<%= form.label :name %>
+  	<%= form.text_field :name %>
+    
+    <%= form.label :email %>
+  	<%= form.text_field :email, type: 'email' %>
+
+  	<%= form.label :avatar %>
+  	<%= form.file_field :avatar %>
+
+  	<%= form.submit "Save changes" %>
+  <% end %>
