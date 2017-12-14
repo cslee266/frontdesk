@@ -7,8 +7,6 @@ end
 
 gem 'fog'
 
-gem 'jquery-rails'
-
 gem 'carrierwave'
 
 gem 'mini_magick'
