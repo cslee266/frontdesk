@@ -5,12 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'fog'
-
-gem 'carrierwave'
-
-gem 'mini_magick'
-
 gem 'will_paginate'
 
 gem 'bootstrap-sass'
@@ -80,7 +74,7 @@ gem 'omniauth-google-oauth2'
 # gem 'kaminari'
 
 # Adding CarrierWave gem for uploading photos
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
 
