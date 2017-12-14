@@ -1,0 +1,20 @@
+  <%= form_for @units, url: unit_path do |f| %>
+	
+	  <%= f.label :residence %>
+  	<%= f.text_field :residence %><br>
+    
+    <%= f.label :block %>
+  	<%= f.text_field :block %><br>
+
+	  <%= f.label :floor %>
+  	<%= f.text_field :floor %><br>
+
+    <%= f.label :unit_number %>
+    <%= f.text_field :unit_number %><br>
+
+    <%= f.label :unit_type %>
+    <%= f.text_field :unit_type %><br>
+
+  	<%= f.submit "Submit" %>
+
+  <% end %>
