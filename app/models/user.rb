@@ -21,4 +21,6 @@ class User < ApplicationRecord
 
 	mount_uploader :avatar, AvatarUploader
 
+	enum role: [:homeowner, :superadmin]
+
 end

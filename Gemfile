@@ -80,7 +80,7 @@ gem 'omniauth-google-oauth2'
 # gem 'kaminari'
 
 # Adding CarrierWave gem for uploading photos
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
 
