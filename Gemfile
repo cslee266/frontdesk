@@ -70,10 +70,10 @@ gem 'omniauth-google-oauth2'
 # # Adding Kaminari gem for pagination
 # gem 'kaminari'
 
-# # Adding CarrierWave gem for uploading photos
-# gem 'carrierwave', '~> 1.0'
-# gem 'mini_magick'
-# gem 'fog'
+# Adding CarrierWave gem for uploading photos
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'
+gem 'fog'
 
 # gem 'letter_opener', :group => :development
 
