@@ -1,6 +1,10 @@
 <h1>Edit Your Profile</h1>
 
+<% if @user.avatar %>
+
 <%= image_tag @user.avatar.thumb.to_s %>
+
+<% end %>
 
   <%= form_for @user, html: { multipart: true } do |form| %>
 	

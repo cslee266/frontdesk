@@ -19,4 +19,6 @@ class User < ApplicationRecord
 	  return x.token unless x.nil?
 	end
 
+	mount_uploader :avatar, AvatarUploader
+
 end
