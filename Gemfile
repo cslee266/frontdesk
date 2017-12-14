@@ -51,3 +51,32 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Adding clearance gem for lightweight user management
+gem 'clearance'
+
+# Adding Figaro gem for protecting privacy
+gem 'figaro'
+
+# Adding OmniAuth-Facebook gem
+gem 'omniauth-facebook'
+
+# Adding OmniAuth-Google gem
+gem 'omniauth-google-oauth2'
+
+# # Adding Faker gem
+# gem 'faker'
+
+# # Adding Kaminari gem for pagination
+# gem 'kaminari'
+
+# Adding CarrierWave gem for uploading photos
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'
+gem 'fog'
+
+# gem 'letter_opener', :group => :development
+
+# gem 'sidekiq'
+
+# gem 'rails_12factor'
