@@ -1,3 +1,28 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.booking_history {
+    display: block;
+    float: center;
+    padding: 14px 16px;
+    text-align: left;
+    background-color: white;
+    text-decoration: none;
+}
+
+table {
+    font-family: arial, sans-serif;
+      color: blue;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    color: lightgray;
+    text-align: center;
+    padding: 8px;
+    color: black; 
+}

@@ -1,5 +1,32 @@
-<h1>users#show</h1>
+<head>
+	<title>Profile</title>
+</head>
+
+
+
+<%= image_tag @user.avatar.thumb %>
+<h3><%= @user.name.capitalize %><h3>
+<p> unit number <p>
+
+
+<li class="booking_history">Your Facility Booking </li>
+<table>
+  <tr>
+  	<th>Facilities</th>
+  	<th>Date</th>
+  	<th>Time</th>
+  </tr>
+  <tr>
+ 	<td>code for facilities name</td>
+ 	<td>code for date</td>
+ 	<td>code for time</td>
+  </tr>
+</table>
+<p> Maintenance Update<p>
+
+<p> visitor history <p>
+
+
+<br>
 <%= link_to "Edit Profile", edit_user_path(@user.id) %>
-
-
-
+<%= link_to "Home", welcome_index_path %>

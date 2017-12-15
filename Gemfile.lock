@@ -40,7 +40,6 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (7.1.4)
-
     autoprefixer-rails (7.2.3)
       execjs
     bcrypt (3.1.11)
@@ -391,7 +390,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass
   byebug
-  carrierwave (~> 1.0)
+  carrierwave
   clearance
   coffee-rails (~> 4.2)
   figaro
