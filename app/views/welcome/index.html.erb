@@ -1,7 +1,7 @@
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-
+<%= link_to "Sign in with Facebook", "/auth/facebook" %>
 
 
 
@@ -122,7 +122,8 @@ $( document ).ready(function(){
           <!-- Wrapper for slides -->
           <div class="carousel-inner">
             <div class="item active">
-              <img src="http://www.pvhc.net/img46/fsvxlzqocyhmrblzvehl.png" class="img-responsive"/>
+              <%= link_to(image_tag("http://www.pvhc.net/img46/fsvxlzqocyhmrblzvehl.png", class: "img-responsive"), user_path(current_user)) %>
+               <!-- <img src="http://www.pvhc.net/img46/fsvxlzqocyhmrblzvehl.png" class="img-responsive"/> -->
             </div>
            <div class="item">
               <h3 class="tilecaption" style="font-family: 'Permanent Marker', cursive;">Reserve a Space!</h3>
