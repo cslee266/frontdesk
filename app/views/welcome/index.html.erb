@@ -2,7 +2,7 @@
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
 <%= link_to "Sign in with Facebook", "/auth/facebook" %>
-
+<%= link_to "Sign in with Google", "/auth/google_oauth2" %>
 
 
 <script>   
@@ -116,7 +116,7 @@ $( document ).ready(function(){
     </div>
   </div>
   <div class="col-sm-2 col-xs-4">
-    <%= link_to user_path(current_user) do %>
+    <%= link_to user_path(@user) do %>
     <div id="tile6" class="tile">
        
          <div class="carousel slide" data-ride="carousel">
@@ -214,6 +214,29 @@ $( document ).ready(function(){
 </div>    
 
 <!-- Chat -->
+  <% if @admin %>
+
+<div class="row">
+  <div class="col-md-9">
+    <ul id="conversations-list">
+      <% conversation = @conversations %>
+        <%= render 'conversations/conversation', conversation: conversation, user: current_user %>
+    </ul>
+  </div>
+  
+  <div class="col-md-3">
+    <div class="panel panel-primary">
+      <%= link_to conversations_path(user_id: @admin), remote: true, method: :post do %>
+      <div class="panel-heading">
+        <h3 class="panel-title">Talk to an admin!</h3>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>  
+
+  <% elsif @users %>
+
 <div class="row">
   <div class="col-md-9">
     <ul id="conversations-list">
@@ -222,7 +245,7 @@ $( document ).ready(function(){
       <% end %>
     </ul>
   </div>
- 
+
   <div class="col-md-3">
     <div class="panel panel-primary">
       <div class="panel-heading">
@@ -231,13 +254,15 @@ $( document ).ready(function(){
       <div class="panel-body">
         <ul>
           <% @users.each do |user| %>
-            <li><%= link_to user.email, conversations_path(user_id: user), remote: true, method: :post %></li>          
+            <li><%= link_to user.name, conversations_path(user_id: user), remote: true, method: :post %></li>          
           <% end %>
         </ul>
       </div>
     </div>
   </div>
-</div>      
+</div>  
+  <% end %>
+ 
 
 
 
