@@ -116,23 +116,28 @@ $( document ).ready(function(){
     </div>
   </div>
   <div class="col-sm-2 col-xs-4">
+    <%= link_to user_path(current_user) do %>
     <div id="tile6" class="tile">
        
          <div class="carousel slide" data-ride="carousel">
           <!-- Wrapper for slides -->
           <div class="carousel-inner">
             <div class="item active">
-              <%= link_to(image_tag("http://www.pvhc.net/img46/fsvxlzqocyhmrblzvehl.png", class: "img-responsive"), user_path(current_user)) %>
+              <%= image_tag("http://www.pvhc.net/img46/fsvxlzqocyhmrblzvehl.png", class: "img-responsive") %>
                <!-- <img src="http://www.pvhc.net/img46/fsvxlzqocyhmrblzvehl.png" class="img-responsive"/> -->
             </div>
-           <div class="item">
-              <h3 class="tilecaption" style="font-family: 'Permanent Marker', cursive;">Reserve a Space!</h3>
+           
+             <div class="item">
+             <h3 class="tilecaption" style="font-family: 'Permanent Marker', cursive;">Reserve a Space!</h3> 
             </div>
+             
           </div>
         </div>
-         
+
     </div>
+<% end %>
   </div>
+
 </div>
 
 <div class="row">
