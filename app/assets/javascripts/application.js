@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require_tree .
 
+
 (function() {
   $(document).on('click', '.toggle-window', function(e) {
     e.preventDefault();
@@ -29,4 +30,4 @@
       messages_list.scrollTop(height);
     }
   });
-})();
+})();    

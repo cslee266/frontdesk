@@ -19,6 +19,11 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
   end
 
+  resources :facilities, only: [:index]
+  
+  resources :reservations, except: [:new, :edit, :show]
+  
+
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
