@@ -28,15 +28,14 @@
 	<div id="header">
 	  <% if signed_in? %>
 	    <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
-  <%= link_to "User Profile", user_path(@user.id) %>
-	  <% else -%>
+	  <% else %>
 	    <%= link_to t(".sign_in"), sign_in_path %>
-	  <% end -%>
+	  <% end %>
   	</div>
 
   	<div id="flash">
-   	  <% flash.each do |key, value| -%>
-    	<div id="flash_<%= key %>"><%=h value %></div>
+   	  <% flash.each do |key, value| %>
+    	<div id="flash_<%= key %>"><%= value %></div>
       <% end %>
   	</div>
   	

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'braintree/new'
+
   get 'welcome/index'
 
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
@@ -22,6 +24,8 @@ Rails.application.routes.draw do
   resources :facilities, only: [:index]
   
   resources :reservations, except: [:new, :edit, :show]
+
+  post 'braintree/checkout'
   
 
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
