@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 <div class="animsition"> 
   <%= render partial: '/welcome/navbar' %>
 
@@ -36,3 +37,111 @@
 
 <%= render partial: '/welcome/footer' %>
 
+=======
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script>   
+$( document ).ready(function(){
+    $(".tile").height($("#tile1").width());
+    $(".carousel").height($("#tile1").width());
+    $(".item").height($("#tile1").width());
+     
+    $(window).resize(function() {
+    if(this.resizeTO) clearTimeout(this.resizeTO);
+    this.resizeTO = setTimeout(function() {
+      console.log("yotimedout")
+      $(this).trigger('resizeEnd');
+    }, 10);
+    });
+    
+    $(window).bind('resizeEnd', function() {
+      $(".tile").height($("#tile1").width());
+        $(".carousel").height($("#tile1").width());
+        $(".item").height($("#tile1").width());
+    });
+});
+</script>
+ 
+  <div class="col-sm-2 col-xs-4">
+    <div id="tile4" class="tile">
+       
+        <div class="carousel slide" data-ride="carousel">
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner">
+            <div class="item active">
+             
+            </div>
+            <div class="item">
+              <h3 class="tilecaption" style="font-family: 'Permanent Marker', cursive;">Maintenace Request</h3>
+            </div>
+          </div>
+        </div>
+         
+    </div>
+  </div>
+         
+  <div class="col-sm-2 col-xs-4">
+    <div id="tile6" class="tile">
+       
+         <div class="carousel slide" data-ride="carousel">
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner">
+            <div class="item active">
+             <p class="booking_history">Your Facility Booking </p>
+			<table>
+  				<tr><th>Facilities</th>
+  					<th>Date</th>
+  					<th>Time</th>
+  				</tr>
+  				<tr><td>code for facilities name</td>
+ 					<td>code for date</td>
+ 					<td>code for time</td>
+  				</tr>
+			</table>
+        
+            </div>
+           <div class="item">
+              <h3 class="tilecaption" style="font-family: 'Permanent Marker', cursive;">Reserve a Space!</h3>
+
+            </div>
+          </div>
+        </div>
+         
+    </div>
+  </div>
+</div>
+
+
+  <div class="col-sm-2 col-xs-4">
+    <div id="tile8" class="tile">
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner">
+            <div class="item active">
+               
+               <div class="item">
+              		<h3 class="tilecaption" style="font-family: 'Permanent Marker', cursive;">Schedule a Guest</h3>
+            	</div>
+           		
+            </div>      
+    </div>
+  </div>
+   
+  </div>
+  <div class="col-sm-4 col-xs-8">
+    <div id="tile10" class="tile">
+          <div class="carousel-inner">
+            <div class="item active">
+            	<%= image_tag @user.avatar.url %>
+            	<h3 class="tilecaption" style="font-family: 'Permanent Marker', cursive;"><%= @user.name.capitalize %><br>unit number</h3>
+              <h3 class="tilecaption"><i class="fa fa-child fa-4x"></i></h3>
+            </div>           
+          </div>       
+    </div>
+  </div>  
+</div>          
+
+<br>
+<%= link_to "Edit Profile", edit_user_path(@user.id) %>
+<%= link_to "Home", welcome_index_path %>
+>>>>>>> 2e5b60c67d34d73921006df66045df482b533910

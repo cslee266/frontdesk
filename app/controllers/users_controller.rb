@@ -1,13 +1,13 @@
 class UsersController < Clearance::UsersController
 	# before_action :require_login
+	layout 'user'
 	before_action :find_user, only: [:show, :edit, :update]
 
 	def edit
 	end
 
 	def show
-		@user = current_user
-
+		@user = User.find(params[:id])
 	end
 
 	def update
