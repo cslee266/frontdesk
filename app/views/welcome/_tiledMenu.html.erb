@@ -1,0 +1,226 @@
+
+<!-- @first_city = get_weather("1733046") -->
+
+<% options = { units: "metric", APPID: "38aaf3427dcedb9b9e8f77f9a15ad0ea" } %>
+<% weatherall = OpenWeather::Current.city_id("1733046", options) %>
+<% @city = weatherall ['name' ] %>
+<% wind = weatherall ['wind' ] %>
+<% @speed = wind ['speed' ] %>
+<% sky = weatherall ['weather']%>
+<% @cloudtype = weatherall['weather'][0]['description'] %>
+<% temp = weatherall['main']%>
+<% @celsius = temp['temp']%>
+
+<% s_option = { units: "metric", APPID: "38aaf3427dcedb9b9e8f77f9a15ad0ea" } %>
+<% s_weatherall = OpenWeather::Current.city_id("1880251", s_option) %>
+<% @s_city = s_weatherall ['name' ] %>
+<% s_wind = s_weatherall ['wind' ] %>
+<% @s_speed = s_wind ['speed' ] %>
+<% s_sky = s_weatherall ['weather']%>
+<% @s_cloudtype = s_sky[0]['description']%>
+<% s_temp = s_weatherall['main']%>
+<% @s_celsius = s_temp['temp']%>
+
+<% if Time.now.hour > 19 %>
+  <% @background = "https://marinis57.com/bymarinis/wp-content/uploads/2015/10/kuala-lumpur-skyline-wallpaper-4.jpg" %>
+<% elsif Time.now.hour < 6 %>
+  <% @background = "https://marinis57.com/bymarinis/wp-content/uploads/2015/10/kuala-lumpur-skyline-wallpaper-4.jpg" %>
+<% else  %>
+  <% @background = "https://cache-graphicslib.viator.com/graphicslib/thumbs360x240/3705/SITours/private-tour-kuala-lumpur-grand-full-day-tour-including-lunch-in-kuala-lumpur-151288.jpg" %>
+<% end %>
+
+<% if Time.now.hour > 19 %>
+  <% @s_background = "https://cdn.pixabay.com/photo/2017/01/07/01/28/singapore-1959463_1280.jpg" %>
+<% elsif Time.now.hour < 6 %>
+  <% @s_background = "https://cdn.pixabay.com/photo/2017/01/07/01/28/singapore-1959463_1280.jpg" %>
+<% else  %>
+  <% @s_background = "https://education.kilroy.net/media/5107735/curtin-singapore-skyline.jpg" %>
+<% end %>
+
+<div class="container dynamicTile" style="width: 530px;">
+          
+          <div class="row ">
+              <div class=" col-xs-4">
+                <div id="tile1" class="tile">
+                  
+                   <div class="carousel slide" data-ride="carousel">
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                      <div class="item active">
+                         <img src="https://openclipart.org/image/2400px/svg_to_png/204749/Found-Icons-in-HK-4-2014111931.png" class="img-responsive"/>
+                      </div>
+                      <div class="item">
+                        <h3 class="tilecaption" style="font-family: 'Roboto', sans-serif;">View Current Bill</h3>
+                      </div>
+                    </div>
+                  </div>
+                   
+                </div>
+            </div>
+            <div class=" col-xs-4">
+              <div id="tile2" class="tile">
+                 
+                   <div class="carousel slide" data-ride="carousel">
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                      <div class="item active">
+                        <img src="http://www.pvhc.net/img27/lffocbnkqsfbmwwoatal.png" class="img-responsive"/>
+                      </div>
+                      <div class="item">
+                        <h3 class="tilecaption" style="font-family: 'Roboto', sans-serif;">Chat With Management</h3>
+                      </div>
+                    </div>
+                  </div>
+                   
+              </div>
+            </div>
+            <div class=" col-xs-4">
+              <%= link_to "https://weather.com/weather/today/l/MYXX0008:1:MY", :class => "animsition-link" do %> 
+              <div id="tile3" class="tile" style="background-image: url(<%=@background%>); background-size: cover;">
+                 
+                  <div class="carousel slide" data-ride="carousel">
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                      <div class="item active">
+                         <img src="https://cbsnewyork.files.wordpress.com/2016/12/category_weather_500x500.png?w=310&h=310&crop=1"/>
+                      </div>
+                      <div class="item" style="opacity: 0.8;">
+                         <h3 style="color: white; padding-left: .25em; font-weight: 300; font-family: 'Roboto', sans-serif;"> <%= @city %></h3><h4 style="color: white; padding-left: .75em; font-weight: 400; font-family: 'Roboto', sans-serif;">currently:</h4><h4 style="color: white; padding-left: .75em; font-weight: 400;  font-family: 'Roboto', sans-serif;"> temp: <%= @celsius %>° <br><%= @cloudtype %> <br>wind speed: <%= @speed%></h4> 
+                      </div>
+                      </div> 
+                   </div>
+                    <% end %>  
+              </div>
+            </div>
+            <div class=" col-xs-4">
+              <div id="tile4" class="tile">
+                 
+                  <div class="carousel slide" data-ride="carousel">
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                      <div class="item active">
+                        <img src="https://png.icons8.com/metro/540/maintenance.png"/>
+                      </div>
+                      <div class="item">
+                        <h3 class="tilecaption" style="font-family: 'Roboto', sans-serif;">Maintenace Request</h3>
+                      </div>
+                    </div>
+                  </div>
+                   
+              </div>
+            </div>
+              <div class=" col-xs-4">
+              <%= link_to root_path, :class => "animsition-link" do %> 
+                <div id="tile5" class="tile">
+                 
+                   <div class="carousel slide" data-ride="carousel">
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                      <div class="item active">
+                        <img src="http://handsontek.net/demoimages/tiles/neews.png" class="img-responsive"/>
+                      </div>
+                      <div class="item">
+                        <img src="http://handsontek.net/demoimages/tiles/neews2.png" class="img-responsive"/>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>  
+              </div>
+            </div>
+            <div class=" col-xs-4">
+              <div id="tile6" class="tile">
+                 
+                   <div class="carousel slide" data-ride="carousel">
+                    <!-- Wrapper for slides asdfsf-->
+                    <div class="carousel-inner">
+                      <div class="item active">
+                     
+                        <img src="http://www.pvhc.net/img46/fsvxlzqocyhmrblzvehl.png" class="img-responsive"/> 
+                         <!-- <img src="http://www.pvhc.net/img46/fsvxlzqocyhmrblzvehl.png" class="img-responsive"/> -->
+                      </div>
+                     <div class="item">
+                        <h3 class="tilecaption" style="font-family: 'Roboto', sans-serif;">Reserve a Space!</h3>
+                      </div>
+                    </div>
+                  </div>
+                   
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class=" col-xs-8">
+              <div id="tile7" class="tile">
+                 
+                  <div class="carousel slide" data-ride="carousel">
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                      <div class="item active">
+                        <img src="http://www.investkl.gov.my/assets/contentMS/img/template/skyline1_1.jpg" class="img-responsive"/>
+                      </div>
+                      <div class="item">
+                        <img src="http://pix10.agoda.net/hotelImages/551/551884/551884_16101208540047644127.jpg?s=1024x768"/>
+                      </div>
+                      <div class="item">
+                        <img src="http://uoa.com.my/facebook/waterfall-header.jpg"/>
+                      </div>
+                    </div>
+                  </div>
+                   
+              </div>
+            </div>
+            <div class=" col-xs-4">
+              <div id="tile8" class="tile">
+                 
+                   <div class="carousel slide" data-ride="carousel">
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                      <div class="item active">
+                         <img src="https://cdn.onlinewebfonts.com/svg/img_24162.png" height= "90%" width="90%" style="margin-top: 1.5em; margin-left: .6em;"/>
+                      </div>
+                     <div class="item">
+                        <h3 class="tilecaption" style="font-family: 'Roboto', sans-serif;">Schedule a Guest</h3>
+                      </div>
+                      </div>
+                   </div>
+                   
+              </div>
+            </div>
+            <div class=" col-xs-4">
+              <div id="tile9" class="tile">
+                 
+                    <div class="carousel slide" data-ride="carousel">
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                      <div class="item active">
+                        <h3 class="tilecaption" style="font-family: 'Roboto', sans-serif;"><%= Time.now.strftime("%I:%m") %></h3>
+                      </div>
+                      <div class="item">
+                        <h3 class="tilecaption" style="font-family: 'Roboto', sans-serif;"><%= Time.now.strftime("%b %d, %Y") %></h3>
+                      </div>
+                    </div>
+                  </div>
+                   
+              </div>
+            </div>
+            <div class=" col-xs-8">
+             <%= link_to user_path(current_user), :class => "animsition-link" do %> 
+              <div id="tile10" class="tile">
+                 
+                     <div class="carousel slide" data-ride="carousel">
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                      <div class="item active">
+                        <h3 class="tilecaption"><i class="fa fa-child fa-4x"></i></h3>
+                      </div>
+                      <div class="item">
+                        <h3 class="tilecaption" style="font-family: 'Roboto', sans-serif;">User Profile</h3>
+                      </div>          
+                    </div>
+                  </div>        
+              </div>
+              <% end %> 
+            </div>  
+          </div> 
+        </div>  
+    </div> <!-- end of carousel  --> 
