@@ -85,3 +85,5 @@ gem 'fog'
 # gem 'sidekiq'
 
 # gem 'rails_12factor'
+
+gem 'braintree'

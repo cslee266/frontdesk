@@ -11,9 +11,11 @@
 // about supported directives.
 //
 //= require jquery
+//= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
 
 (function() {
   $(document).on('click', '.toggle-window', function(e) {
@@ -86,4 +88,5 @@ $(document).ready(function() {
     transition: function(url){ window.location.href = url; }
   });
 });
+
 

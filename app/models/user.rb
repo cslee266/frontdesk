@@ -5,6 +5,8 @@ class User < ApplicationRecord
   has_one :unit
   has_many :messages
   has_many :conversations, foreign_key: :sender_id
+  has_many :reservations
+  has_many :visitors
 
 	def self.create_with_auth_and_hash(authentication, auth_hash)
 	  user = self.create!(
