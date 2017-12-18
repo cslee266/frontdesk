@@ -1,33 +1,35 @@
-<h1>facilites#index</h1>
+<div class="animsition"> 
+  <%= render partial: '/welcome/navbar' %>
 
-<div>
+<div class="container-fluid" >
+  <div class="row">
+     
+    <div class="col-sm-6" >
+      <div style="margin-top: 1em; margin-left: 0px; padding-left: 0px;">
+       <%= render partial: '/welcome/tiledMenu'%>
+      </div> 
 
-	<%= form_for @reservation do |f| %>
-		<%= f.label :select_facility %> 
-		<%= select_tag "facility", options_from_collection_for_select(@facility, "id", "name"), prompt: 'Select Facility' %><br>
+        <div class="col-sm-4" style="border-left: 1.5px solid; border-color: grey; margin-top: 5em;" >
 
-		<%= f.label :date_and_time %>
-		<div class="container">
-		    <div class="row">
-		        <div class='col-sm-4'>
-		            <div class="form-group">
-		                <div class='input-group date' id='datetimepicker1'>
-		                    <input type='text' class="form-control" />
-		                    <span class="input-group-addon">
-		                        <span class="glyphicon glyphicon-calendar"></span>
-		                    </span>
-		                </div>
-		            </div>
-		        </div>
-		        <script type="text/javascript">
-		            $(function () {
-		                $('#datetimepicker1').datetimepicker();
-		            });
-		        </script>
-		    </div>
-		</div>
+					<div>
 
-		<%= f.submit "Submit Reservation" %>
-	<% end %>
+						<%= form_for [@facility, @reservation], url: facility_reservations_path, method: :post do |f| %>
+							<%= f.label :select_facility %> 
+							<%= select_tag "facility", options_from_collection_for_select(@facility, "id", "name"), prompt: 'Select Facility' %><br>
+
+							<%= f.label :date_and_time %><br>
+							<%= f.datetime_field :start_time, :class => "form-control" %><br>
+							<%= f.datetime_field :end_time, :class => "form-control" %><br>
+	
+					</div>
+
+						<%= f.submit "Submit Reservation", :class => "btn btn-danger"%>
+					<% end %>
 
 </div>
+</div>
+</div>
+</div>
+</div>
+
+<%= render partial: '/welcome/footer' %>

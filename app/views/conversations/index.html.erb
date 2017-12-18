@@ -1,0 +1,69 @@
+<div class="animsition"> 
+  <%= render partial: '/welcome/navbar' %>
+
+<div class="container-fluid" >
+  <div class="row">
+     
+    <div class="col-sm-6" >
+      <div style="margin-top: 1em; margin-left: 0px; padding-left: 0px;">
+       <%= render partial: '/welcome/tiledMenu'%>
+      </div> 
+
+        <div class="col-sm-6" style="border-left: 1.5px solid; border-color: grey; margin-top: 5em;" >
+            <% if @admin %>
+
+<div class="row">
+  <div class="col-md-9">
+    <ul id="conversations-list">
+      <% conversation = @conversations %>
+        <%= render 'conversations/conversation', conversation: conversation, user: current_user %>
+    </ul>
+  </div>
+  
+  <div class="col-md-3">
+    <div class="panel panel-primary">
+      <%= link_to conversations_path(user_id: @admin), remote: true, method: :post do %>
+      <div class="panel-heading">
+        <h3 class="panel-title">Talk to an admin!</h3>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>  
+
+  <% elsif @users %>
+
+<div class="row">
+  <div class="col-md-9">
+    <ul id="conversations-list">
+      <% @conversations.each do |conversation| %>
+        <%= render 'conversations/conversation', conversation: conversation, user: current_user %>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="col-md-3">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">User list</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+          <% @users.each do |user| %>
+            <li><%= link_to user.name, conversations_path(user_id: user), remote: true, method: :post %></li>          
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>  
+  <% end %>
+
+          
+         
+      </div>
+    </div>
+  </div> <!-- end of row   -->  
+</div> <!-- end of container   --> 
+
+<%= render partial: '/welcome/footer' %>
