@@ -26,7 +26,7 @@
 <% elsif Time.now.hour < 6 %>
   <% @background = "https://marinis57.com/bymarinis/wp-content/uploads/2015/10/kuala-lumpur-skyline-wallpaper-4.jpg" %>
 <% else  %>
-  <% @background = "https://cache-graphicslib.viator.com/graphicslib/thumbs360x240/3705/SITours/private-tour-kuala-lumpur-grand-full-day-tour-including-lunch-in-kuala-lumpur-151288.jpg" %>
+  <% @background = "http://www.globalblue.com/destinations/malaysia/article434453.ece/BINARY/kuala_lumpur_skyline.jpg" %>
 <% end %>
 
 <% if Time.now.hour > 19 %>
@@ -42,7 +42,7 @@
           <div class="row ">
               <div class=" col-xs-4">
                 <div id="tile1" class="tile">
-                  
+                  <%= link_to braintree_new_path, :class => "animsition-link" do %> 
                    <div class="carousel slide" data-ride="carousel">
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
@@ -54,11 +54,12 @@
                       </div>
                     </div>
                   </div>
-                   
+                 <% end %>  
                 </div>
             </div>
             <div class=" col-xs-4">
               <div id="tile2" class="tile">
+                    <%= link_to user_conversations_path(@user.id), :class => "animsition-link" do %> 
                  
                    <div class="carousel slide" data-ride="carousel">
                     <!-- Wrapper for slides -->
@@ -71,7 +72,7 @@
                       </div>
                     </div>
                   </div>
-                   
+                    <% end %>  
               </div>
             </div>
             <div class=" col-xs-4">
@@ -84,8 +85,16 @@
                       <div class="item active">
                          <img src="https://cbsnewyork.files.wordpress.com/2016/12/category_weather_500x500.png?w=310&h=310&crop=1"/>
                       </div>
-                      <div class="item" style="opacity: 0.8;">
+                      <div class="item" style="">
                          <h3 style="color: white; padding-left: .25em; font-weight: 300; font-family: 'Roboto', sans-serif;"> <%= @city %></h3><h4 style="color: white; padding-left: .75em; font-weight: 400; font-family: 'Roboto', sans-serif;">currently:</h4><h4 style="color: white; padding-left: .75em; font-weight: 400;  font-family: 'Roboto', sans-serif;"> temp: <%= @celsius %>° <br><%= @cloudtype %> <br>wind speed: <%= @speed%></h4> 
+                      </div>
+                      <div class="item" >
+                      <!--   <div class="container-fluid"> -->
+                          <img style="height:100%" src="<%=@s_background%>"/>
+                            <div style="top: .1em; position: absolute;">
+                             <h3 style="color: white; padding-left: .25em; font-weight: 300; font-family: 'Roboto', sans-serif;"> Singapore</h3><h4 style="color: white; padding-left: .75em; font-weight: 400; font-family: 'Roboto', sans-serif;">currently:</h4><h5 style="color: white; padding-left: .75em; font-weight: 400;  font-family: 'Roboto', sans-serif;"> temp: <%= @s_celsius %>° <br><%= @s_cloudtype %> <br>wind speed: <%= @s_speed%></h5> 
+                           </div>
+                         <!--  </div>  -->
                       </div>
                       </div> 
                    </div>
@@ -94,7 +103,7 @@
             </div>
             <div class=" col-xs-4">
               <div id="tile4" class="tile">
-                 
+                <%= link_to maintenances_path, :class => "animsition-link" do %>  
                   <div class="carousel slide" data-ride="carousel">
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
@@ -106,7 +115,7 @@
                       </div>
                     </div>
                   </div>
-                   
+                <% end %>  
               </div>
             </div>
               <div class=" col-xs-4">
@@ -129,7 +138,7 @@
             </div>
             <div class=" col-xs-4">
               <div id="tile6" class="tile">
-                 
+                 <%= link_to facilities_path, :class => "animsition-link" do %> 
                    <div class="carousel slide" data-ride="carousel">
                     <!-- Wrapper for slides asdfsf-->
                     <div class="carousel-inner">
@@ -145,6 +154,7 @@
                   </div>
                    
               </div>
+              <% end %>
             </div>
           </div>
 
@@ -171,8 +181,8 @@
             </div>
             <div class=" col-xs-4">
               <div id="tile8" class="tile">
-                 
-                   <div class="carousel slide" data-ride="carousel">
+                 <%= link_to user_visitors_path(@user.id), :class => "animsition-link" do %>
+                  <div class="carousel slide" data-ride="carousel">
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
                       <div class="item active">
@@ -183,7 +193,7 @@
                       </div>
                       </div>
                    </div>
-                   
+                <% end %>   
               </div>
             </div>
             <div class=" col-xs-4">

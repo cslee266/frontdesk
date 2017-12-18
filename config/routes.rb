@@ -10,7 +10,8 @@ Rails.application.routes.draw do
     resources :password,
       controller: "clearance/passwords",
       only: [:create, :edit, :update]
-    resources :visitors, except: [:edit, :show]
+    resources :visitors, except: [:edit]
+    resources :conversations, only: [:index]
   end
 
   resources :units
@@ -22,9 +23,13 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
   end
 
-  resources :facilities, only: [:index]
-  
-  resources :reservations, except: [:new, :edit, :show]
+  resources :facilities, only: [:index] do
+    resource :reservations, only: [:create]
+  end
+
+  resource :reservations, only: [:index]
+
+  resource :maintenances
 
   post 'braintree/checkout'
   
