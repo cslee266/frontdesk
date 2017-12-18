@@ -294,6 +294,8 @@ GEM
     omniauth-oauth2 (1.5.0)
       oauth2 (~> 1.1)
       omniauth (~> 1.2)
+    open-weather (0.11.0)
+      json
     pg (0.21.0)
     puma (3.11.0)
     rack (2.0.3)
@@ -404,6 +406,7 @@ DEPENDENCIES
   mini_magick
   omniauth-facebook
   omniauth-google-oauth2
+  open-weather
   pg (~> 0.18)
   puma (~> 3.0)
   rails (~> 5.0.6)

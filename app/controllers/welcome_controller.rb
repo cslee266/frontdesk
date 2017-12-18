@@ -1,6 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-    @user = current_user
     session[:conversations] ||= []
  
     # @users = User.all.where.not(id: current_user)
