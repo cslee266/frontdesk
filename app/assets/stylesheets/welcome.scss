@@ -1,3 +1,218 @@
+.navbar-default{
+  opacity: 0.8;
+}
+
+
+
+
+.homescreen {
+  padding: 0;
+  margin: 0;
+  background: url("https://i.imgur.com/78Uigwq.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Open Sans', sans-serif;
+  z-index: -2;
+  /*opacity: 0.8;*/
+}
+
+
+.frontpage {
+  text-align: center;
+  height: 750px;
+  color: white;
+
+}
+
+/*----- Bouncing Arrow -----*/
+
+.downArrow{
+  position: fixed;
+  bottom: 10%;
+  left: 47.5%;
+  z-index: 1;
+}
+.bounce {
+  -moz-animation: bounce 3s infinite;
+  -webkit-animation: bounce 3s infinite;
+  animation: bounce 3s infinite;
+}
+@-moz-keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    -moz-transform: translateY(0);
+    transform: translateY(0);
+  }
+  40% {
+    -moz-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+  60% {
+    -moz-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
+}
+@-webkit-keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  40% {
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+  60% {
+    -webkit-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
+}
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  40% {
+    -moz-transform: translateY(-30px);
+    -ms-transform: translateY(-30px);
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+  60% {
+    -moz-transform: translateY(-15px);
+    -ms-transform: translateY(-15px);
+    -webkit-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
+}
+
+/*----- Bouncing Arrow -----*/
+
+
+
+
+
+
+
+.form-control{
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+}
+
+.main-text {
+    letter-spacing: 6px; 
+     
+     text-align: center;
+vertical-align: middle;
+    font-size: 90px;
+    z-index: 1;
+  }
+
+  .sub-text {
+    font-size: 50px;
+    font-family: 'Sacramento';
+    position:fixed; 
+    z-index: 1;
+  
+}
+#iphone {
+  height: auto; 
+  width: auto; 
+  max-width: 600px; 
+  max-height: 600px;
+  margin-top: 4em;
+
+}
+
+#ipad {
+  height: auto; 
+  width: auto; 
+  max-width: 700px; 
+  max-height: 700px;
+  margin-top: 4em;
+
+}
+
+#computer {
+  height: auto; 
+  width: auto; 
+  max-width: 600px; 
+  max-height: 600px;
+  margin-top: 10em;
+
+}
+
+#about {
+    margin-top: 10em;
+    font-family: 'Roboto:300', sans-serif;
+}
+
+
+#whyuseus {
+    margin-top: 20em;
+    font-family: 'Roboto:300', sans-serif;
+}
+
+.features {
+    margin-top: 35em;
+    font-family: 'Roboto:300', sans-serif;
+}
+
+
+.para-one {
+  width: 50%;
+  padding: 10px;
+  float: left;
+  font-color: black;
+  z-index: 2;
+  position: relative;
+}
+
+.para-two {
+  width: 50%;
+  padding: 10px;
+  float: left;
+  font-color: black;
+  z-index: 2;
+  position: relative;
+}
+
+
+#footer {
+  margin-top: 10em;
+  height :15em;
+  border-top: 1px solid;
+  border-color: grey;
+}
+a {
+    color: grey ;
+
+  }
+a:link {
+    color: rgb(164, 175, 193);
+    text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+    color: rgb(164, 175, 193);
+    text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+    color: rgb(164, 175, 193);
+    text-decoration: none;
+}
+
+/* selected link */
+a:active {
+    color: rgb(164, 175, 193);
+    text-decoration: none;
+}
 
 .dynamicTile .col-sm-2.col-xs-4{
     padding:5px;
@@ -7,23 +222,32 @@
     padding:5px;
 }
 
+.dynamicTile .col-xs-4{
+    padding:5px;
+}
+
+.dynamicTile .col-xs-8{
+    padding:5px;
+}
+
 #tile1{
     background: rgb(0,172,238);
     font-family: 'Sacramento';
 }
 
 #tile2{
-    background: red;
+    background: #D91E18;
 }
 
+
 #tile3{
-    background: rgb(71,193,228);
+  
+   
 }
 
 #tile4{
-    /*background-image: url('https://www.rentalutions.com/assets/feature_icons/maintenance-icon.png');*/
-    /*background-size: cover;*/
-    background: blue;
+    
+    background: #1F3A93;
 }
 
 #tile5{
@@ -31,7 +255,7 @@
 }
 
 #tile6{
-    background: yellow;
+    background: rgb(244, 229, 66)
 }
 
 #tile7{
@@ -39,11 +263,11 @@
 }
 
 #tile8{
-    background: rgb(209,70,37);
+    background: #F9690E;
 }
 
 #tile9{
-    background: rgb(0,142,0);
+    background: #2ECC71;
 }
 
 #tile10{
@@ -62,4 +286,3 @@
     font-family: Segoe UI;
     font-weight: lighter;
 }
-

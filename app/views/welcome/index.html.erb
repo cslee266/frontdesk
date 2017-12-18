@@ -1,7 +1,95 @@
+<% options = { units: "metric", APPID: "38aaf3427dcedb9b9e8f77f9a15ad0ea" } %>
+<% weatherall = OpenWeather::Current.city_id("1733046", options) %>
+<% @city = weatherall ['name' ] %>
+<% wind = weatherall ['wind' ] %>
+<% @speed = wind ['speed' ] %>
+<% sky = weatherall ['weather']%>
+<% @cloudtype = sky[0]['description']%>
+<% temp = weatherall['main']%>
+<% @celsius = temp['temp']%>
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-<%= link_to "Sign in with Facebook", "/auth/facebook" %>
+<div class="animsition"> 
+<div class="homescreen">
+
+  <%= render partial: '/welcome/navbar' %>
+
+  <div class="frontpage">
+    <!-- <div style="padding-top: 25em; padding-left: 40%;">
+      <a href="#about" style="display:block;  height:200px; width:200px"></a> this link is invisible, but does not work with animsation
+    </div> -->
+
+
+     <div class="downArrow bounce" id="arrow">    <!-- bouncing arrow -->
+      <img width="40" height="40" alt="" src="http://comingjuly2017.isclubhouseforme.com/wp-content/uploads/2017/06/scroll-arrow.png" />
+    </div> <!-- end of bouncing arrow -->
+
+  </div>   <!-- end of homescreen  -->
+</div>     <!-- end of front page -->
+
+<div class="container">
+  <div class="row" id="about" >
+    <div class="col-sm-4 col-md-offset-1"  >
+      <div style="margin-top:  10em;">
+        <h1 style="font-color: black; font-weight: 300; text-align: center" >About Us</h1><br>
+          <div style="color: black; font-weight: 300; font-size: 1.2em;">
+            For property manangers and building owners, the logistics involved in managing a builidng of several thousand residents can be quite daunting. We provide a centralized platform, integrating every department, and providing a streamlined product that will automate nearly every process involved in managing builidng, including the collection of payments, scheduleing maintenance, and direct communication between management and tennant. <h5></h5>
+          </div> 
+      </div>
+     </div> 
+    <div class="col-sm-2 ">
+    </div>
+    <div class="col-sm-4 ">
+      <a href="#computer"><img src="https://i.imgur.com/f9cv8ey.png" id="iphone"/></a>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-7">
+      <img src="https://i.imgur.com/vaVpbtE.jpg" id="computer"/>
+    </div> 
+
+    <div class="col-sm-5" >
+      <div id="whyuseus">
+      <h1 style="font-color: black; font-weight: 300; text-align: center" >Why Use Us</h1><br>
+          <div style="color: black; font-weight: 300; font-size: 1em; ">
+            Our goal is for Front Desk to become the standard interface when it comes to managing apartment complexes. By using our program, your are able to improve operational efficiency and deliveran overall increase in value to each and every tennant. you are adding imporvalue your tennants   Front Desk will take care of your monthly bills, allow you to schedule visitors, notify you of any parcels, and provide you with a direct platform to contact management in order to make special requests or report any disprancies. As a residnet you'll wonder how you ever managed without us! <%= @city %>
+        </div>
+      </div>
+     </div> 
+  </div>     
+</div>  
+
+
+
+<div class="container" style="font-family: 'Roboto', sans-serif;">
+  <div class="row">
+     <div class="col-sm-5 col-md-offset-1"  >
+        <div class="features" >
+           <h1 style="color: black; font-weight: 300; text-align: center">Features</h1><br>
+           <div style="color: black; font-weight: 300; font-size: 1.25em;">
+            <ul>
+            </ul>
+              <li>Easy electronic payment of all bills (including utilities)</li>
+              <li>Electronic record of all past payments</li>
+              <li>Live chat with management</li>
+              <li>Reservation of activity spaces</li>
+              <li>Scheduling of vistors</li>
+              <li>Report maintenance issues</li>
+              <li>Further and customizable integration with developers </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    <div class="col-sm-5" >
+      <div style="margin-top: 20em;">
+        <%= render partial: '/welcome/tiledMenu'%>
+      </div> 
+    </div>
+
+<%= render partial: '/welcome/footer' %>
+
+
 
 
 
@@ -27,217 +115,34 @@ $( document ).ready(function(){
 });
 </script>
 
+<script>
+$(document).ready(function() {
+  $(".animsition").animsition({
+    inClass: 'flip-in-y-nr',
+    outClass: 'flip-out-y-nr',
+    inDuration: 1500,
+    outDuration: 800,
+    linkElement: '.animsition-link',
+    // e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])'
+    loading: true,
+    loadingParentElement: 'body', //animsition wrapper element
+    loadingClass: 'animsition-loading',
+    loadingInner: '', // e.g '<img src="loading.svg" />'
+    timeout: false,
+    timeoutCountdown: 5000,
+    onLoadEvent: true,
+    browser: [ 'animation-duration', '-webkit-animation-duration'],
+    // "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+    // The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
+    overlay : false,
+    overlayClass : 'animsition-overlay-slide',
+    overlayParentElement : 'body',
+    transition: function(url){ window.location.href = url; }
+  });
+});
+</script>
 
 
-<div class="container dynamicTile">
-<div class="row ">
-    <div class="col-sm-2 col-xs-4">
-      <div id="tile1" class="tile">
-        
-         <div class="carousel slide" data-ride="carousel">
-          <!-- Wrapper for slides -->
-          <div class="carousel-inner">
-            <div class="item active">
-               <img src="https://openclipart.org/image/2400px/svg_to_png/204749/Found-Icons-in-HK-4-2014111931.png" class="img-responsive"/>
-            </div>
-            <div class="item">
-              <h3 class="tilecaption" style="font-family: 'Permanent Marker', cursive;">View Current Bill</h3>
-            </div>
-          </div>
-        </div>
-         
-      </div>
-  </div>
-  <div class="col-sm-2 col-xs-4">
-    <div id="tile2" class="tile">
-       
-         <div class="carousel slide" data-ride="carousel">
-          <!-- Wrapper for slides -->
-          <div class="carousel-inner">
-            <div class="item active">
-              <img src="http://www.pvhc.net/img27/lffocbnkqsfbmwwoatal.png" class="img-responsive"/>
-            </div>
-            <div class="item">
-              <h3 class="tilecaption" style="font-family: 'Permanent Marker', cursive;">Chat With Management</h3>
-            </div>
-          </div>
-        </div>
-         
-    </div>
-  </div>
-  <div class="col-sm-2 col-xs-4">
-    <div id="tile3" class="tile">
-       
-        <div class="carousel slide" data-ride="carousel">
-          <!-- Wrapper for slides -->
-          <div class="carousel-inner">
-            <div class="item active">
-               <img src="http://handsontek.net/demoimages/tiles/weather2.png" class="img-responsive"/>
-            </div>
-            <div class="item">
-               <img src="http://handsontek.net/demoimages/tiles/weather.png" class="img-responsive"/>
-            </div>
-            </div>
-         </div>
-    </div>
-  </div>
-  <div class="col-sm-2 col-xs-4">
-    <div id="tile4" class="tile">
-       
-        <div class="carousel slide" data-ride="carousel">
-          <!-- Wrapper for slides -->
-          <div class="carousel-inner">
-            <div class="item active">
-              <img src="https://png.icons8.com/metro/540/maintenance.png"/>
-            </div>
-            <div class="item">
-              <h3 class="tilecaption" style="font-family: 'Permanent Marker', cursive;">Maintenace Request</h3>
-            </div>
-          </div>
-        </div>
-         
-    </div>
-  </div>
-    <div class="col-sm-2 col-xs-4">
-    <div id="tile5" class="tile">
-       
-         <div class="carousel slide" data-ride="carousel">
-          <!-- Wrapper for slides -->
-          <div class="carousel-inner">
-            <div class="item active">
-              <img src="http://handsontek.net/demoimages/tiles/neews.png" class="img-responsive"/>
-            </div>
-            <div class="item">
-              <img src="http://handsontek.net/demoimages/tiles/neews2.png" class="img-responsive"/>
-            </div>
-          </div>
-        </div>
-         
-    </div>
-  </div>
-  <div class="col-sm-2 col-xs-4">
-    <%= link_to user_path(current_user) do %>
-    <div id="tile6" class="tile">
-       
-         <div class="carousel slide" data-ride="carousel">
-          <!-- Wrapper for slides -->
-          <div class="carousel-inner">
-            <div class="item active">
-              <%= image_tag("http://www.pvhc.net/img46/fsvxlzqocyhmrblzvehl.png", class: "img-responsive") %>
-               <!-- <img src="http://www.pvhc.net/img46/fsvxlzqocyhmrblzvehl.png" class="img-responsive"/> -->
-            </div>
-           
-             <div class="item">
-             <h3 class="tilecaption" style="font-family: 'Permanent Marker', cursive;">Reserve a Space!</h3> 
-            </div>
-             
-          </div>
-        </div>
-
-    </div>
-<% end %>
-  </div>
-
-</div>
-
-<div class="row">
-  <div class="col-sm-4 col-xs-8">
-    <div id="tile7" class="tile">
-       
-        <div class="carousel slide" data-ride="carousel">
-          <!-- Wrapper for slides -->
-          <div class="carousel-inner">
-            <div class="item active">
-              <img src="http://www.investkl.gov.my/assets/contentMS/img/template/skyline1_1.jpg" class="img-responsive"/>
-            </div>
-            <div class="item">
-              <img src="http://pix10.agoda.net/hotelImages/551/551884/551884_16101208540047644127.jpg?s=1024x768"/>
-            </div>
-            <div class="item">
-              <img src="http://uoa.com.my/facebook/waterfall-header.jpg"/>
-            </div>
-          </div>
-        </div>
-         
-    </div>
-  </div>
-  <div class="col-sm-2 col-xs-4">
-    <div id="tile8" class="tile">
-       
-         <div class="carousel slide" data-ride="carousel">
-          <!-- Wrapper for slides -->
-          <div class="carousel-inner">
-            <div class="item active">
-               <img src="http://www.pvhc.net/img28/kvowmiuwqehlemjcaohb.png"/>
-            </div>
-           <div class="item">
-              <h3 class="tilecaption" style="font-family: 'Permanent Marker', cursive;">Schedule a Guest</h3>
-            </div>
-            </div>
-         </div>
-         
-    </div>
-  </div>
-  <div class="col-sm-2 col-xs-4">
-    <div id="tile9" class="tile">
-       
-          <div class="carousel slide" data-ride="carousel">
-          <!-- Wrapper for slides -->
-          <div class="carousel-inner">
-            <div class="item active">
-              <img src="http://handsontek.net/demoimages/tiles/calendar.png" class="img-responsive"/>
-            </div>
-            <div class="item">
-              <h3 class="tilecaption"><%= Time.now %></h3>
-            </div>
-          </div>
-        </div>
-         
-    </div>
-  </div>
-  <div class="col-sm-4 col-xs-8">
-    <div id="tile10" class="tile">
-       
-           <div class="carousel slide" data-ride="carousel">
-          <!-- Wrapper for slides -->
-          <div class="carousel-inner">
-            <div class="item active">
-         <h3 class="tilecaption"><i class="fa fa-child fa-4x"></i></h3></a>
-            </div>
-            <div class="item">
-              <h3 class="tilecaption" style="font-family: 'Permanent Marker', cursive;"> User Profile</h3>
-            </div>          
-          </div>
-        </div>        
-    </div>
-  </div>  
-</div>    
-
-<!-- Chat -->
-<div class="row">
-  <div class="col-md-9">
-    <ul id="conversations-list">
-      <% @conversations.each do |conversation| %>
-        <%= render 'conversations/conversation', conversation: conversation, user: current_user %>
-      <% end %>
-    </ul>
-  </div>
- 
-  <div class="col-md-3">
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h3 class="panel-title">User list</h3>
-      </div>
-      <div class="panel-body">
-        <ul>
-          <% @users.each do |user| %>
-            <li><%= link_to user.email, conversations_path(user_id: user), remote: true, method: :post %></li>          
-          <% end %>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>      
 
 
 

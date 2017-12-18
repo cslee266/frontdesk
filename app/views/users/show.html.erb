@@ -1,4 +1,43 @@
 
+<<<<<<< HEAD
+<div class="animsition"> 
+  <%= render partial: '/welcome/navbar' %>
+
+<div class="container-fluid" >
+  <div class="row">
+     
+    <div class="col-sm-6" >
+      <div style="margin-top: 1em; margin-left: 0px; padding-left: 0px;">
+       <%= render partial: '/welcome/tiledMenu'%>
+      </div> 
+
+        <div class="col-sm-6" style="border-left: 1.5px solid; border-color: grey; margin-top: 5em;" >
+            <div class="profile" >
+               <h1 style="color: black;" >Your Profile</h1>
+                  <% if @user.avatar  %>
+                    <%= image_tag @user.avatar.thumb.to_s, class:"img-responsive", :style => "width: 25%; height: 25%;" %>  
+                  <% else %>
+                    <img src="https://www.sparklabs.com/forum/styles/comboot/theme/images/default_avatar.jpg" id="default_avatar" width="300" height="300" >
+                  <% end %> 
+               <h5> User: <%= @user.name %> </h5>
+               <h5> Email: <%= @user.email %> </h5>
+               <h5> Account Type: <%= @user.role %> </h5>
+               <br>
+               <h5> Payment Information </h5>
+               <h5> Card Type: Visa </h5>
+               <h5> Last 4 digits ending in: ************2654 </h5>
+               <h5> Expiration: 10/2019 </h5>
+               <%= link_to "Update Profile or Payment Options", edit_user_path(@user.id) %>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div> <!-- end of row   -->  
+</div> <!-- end of container   --> 
+
+<%= render partial: '/welcome/footer' %>
+
+=======
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
@@ -105,3 +144,4 @@ $( document ).ready(function(){
 <br>
 <%= link_to "Edit Profile", edit_user_path(@user.id) %>
 <%= link_to "Home", welcome_index_path %>
+>>>>>>> 2e5b60c67d34d73921006df66045df482b533910
