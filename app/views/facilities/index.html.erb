@@ -1,35 +1,64 @@
 <div class="animsition"> 
   <%= render partial: '/welcome/navbar' %>
 
-<div class="container-fluid" >
-  <div class="row">
-     
-    <div class="col-sm-6" >
-      <div style="margin-top: 1em; margin-left: 0px; padding-left: 0px;">
-       <%= render partial: '/welcome/tiledMenu'%>
-      </div> 
+	<div class="container-fluid" >
+	  <div class="row">
+	    <div class="col-sm-6" >
+	        <div style="margin-top: 1em; margin-left: 0px; padding-left: 0px;">
+	          <%= render partial: '/welcome/tiledMenu'%>
+	        </div> 
 
-        <div class="col-sm-4" style="border-left: 1.5px solid; border-color: grey; margin-top: 5em;" >
+		    <div class="col-sm-5" style="border-left: 1.5px solid; border-color: grey; margin-top: 5em;">
+				
+				<div style="color: black; font-family: 'Roboto', sans-serif;font-weight: 300; text-align: center; font-size: 1.5em;">Facility Booking Record</div>
+				
+				<% if !(@user.reservations.first.nil?) %>
+					<table class="table">
+					  <thead>
+					    <tr>
+					      <th scope="col">#</th>
+					      <th scope="col">Facility</th>
+					      <th scope="col">Date</th>
+					      <th scope="col">Start Time</th>
+					      <th scope="col">End Time</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+						<% @user.reservations.each_with_index do |reservation, i| %>
+						    <tr>
+						      <th scope="row"><%= i+1 %></th>
+						      <td><%= reservation.facility.name %></td>
+						      <td><%= reservation.start_time.strftime("%b %d, %Y") %></td>
+						      <td><%= reservation.start_time.strftime("%I:%M") %></td>
+						      <td><%= reservation.end_time.strftime("%I:%M") %></td>
+						    </tr>
+						<% end %>
+					  </tbody>
+					</table>
+				<% else %>
+					<div style="text-align: center;">You do not have any facility bookings.</div>
+				<% end %>
 
-					<div>
+				<div style="color: black; font-family: 'Roboto', sans-serif;font-weight: 300; text-align: center; font-size: 1.5em; margin-top: 2em;">Facility Reservation</div>
 
-						<%= form_for [@facility, @reservation], url: facility_reservations_path, method: :post do |f| %>
-							<%= f.label :select_facility %> 
-							<%= select_tag "facility", options_from_collection_for_select(@facility, "id", "name"), prompt: 'Select Facility' %><br>
+				<div>
+					<%= form_for @reservation do |f| %>
+						<%= f.label :Facility %><br>
+						<%= select_tag "facility", options_from_collection_for_select(@facility, "id", "name"), prompt: 'Select' %><br>
 
-							<%= f.label :date_and_time %><br>
-							<%= f.datetime_field :start_time, :class => "form-control" %><br>
-							<%= f.datetime_field :end_time, :class => "form-control" %><br>
-	
-					</div>
+						<div style="margin-top: 1.5em;"><%= f.label :start_time %></div>
+						<%= f.datetime_field :start_time, :class => "form-control" %><br>
+
+						<%= f.label :end_time %>
+						<%= f.datetime_field :end_time, :class => "form-control" %><br>
 
 						<%= f.submit "Submit Reservation", :class => "btn btn-danger"%>
 					<% end %>
-
-</div>
-</div>
-</div>
-</div>
+				</div>
+			</div>
+		</div>
+	  </div>
+	</div>
 </div>
 
 <%= render partial: '/welcome/footer' %>

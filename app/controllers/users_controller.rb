@@ -1,16 +1,16 @@
 class UsersController < Clearance::UsersController
 	# before_action :require_login
-	layout 'user'
 	before_action :find_user, only: [:show, :edit, :update]
 
 	def edit
 	end
 
 	def show
-		@user = User.find(params[:id])
+		@user = current_user
 	end
 
 	def update
+		@user = User.find(params[:id])
 		if @user.update(user_params)
 			redirect_to root_path
 		else
