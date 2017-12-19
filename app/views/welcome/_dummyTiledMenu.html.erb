@@ -8,8 +8,8 @@
 <% temp = weatherall['main']%>
 <% @celsius = temp['temp']%>
 
-<% s_option = { units: "metric", APPID: ENV["WX_KEY"] %>
-<% s_weatherall = OpenWeather::Current.city_id("1880251", s_option) %>
+<% s_options = { units: "metric", APPID: ENV["WX_KEY"] } %>
+<% s_weatherall = OpenWeather::Current.city_id("1880251", s_options ) %>
 <% @s_city = s_weatherall ['name' ] %>
 <% s_wind = s_weatherall ['wind' ] %>
 <% @s_speed = s_wind ['speed' ] %>
