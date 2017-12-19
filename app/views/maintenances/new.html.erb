@@ -1,0 +1,32 @@
+<div class="animsition"> 
+  <%= render partial: '/welcome/navbar' %>
+
+<div class="container-fluid" >
+  <div class="row">
+     
+    <div class="col-sm-6" >
+      <div style="margin-top: 1em; margin-left: 0px; padding-left: 0px;">
+       <%= render partial: '/welcome/tiledMenu'%>
+      </div> 
+
+        <div class="col-sm-4" style="border-left: 1.5px solid; border-color: grey; margin-top: 5em;" >
+		
+		<div style="color: black; font-family: 'Roboto', sans-serif;font-weight: 300; text-align: center; font-size: 1.5em;">New Maintenance Request</div>
+
+		<%= form_for @maintenance do |f| %>
+		  <%= f.label :title %>
+		  <%= f.text_field :title, class:"form-control" %><br>
+
+		  <%= f.label :description %>
+		  <%= f.text_area :description, class:"form-control", id:"description", html: {rows:"3"} %><br>
+
+		  <%= f.submit "Submit Request", class: "btn btn-danger" %>
+		<% end %>
+
+		</div>
+	  </div>
+	</div>
+</div>
+</div>
+
+<%= render partial: '/welcome/footer' %>

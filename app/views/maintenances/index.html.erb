@@ -11,37 +11,35 @@
 
         <div class="col-sm-5" style="border-left: 1.5px solid; border-color: grey; margin-top: 5em;" >
 
-		<div style="color: black; font-family: 'Roboto', sans-serif;font-weight: 300; text-align: center; font-size: 1.5em;">Visitor Log</div>
+		<div style="color: black; font-family: 'Roboto', sans-serif;font-weight: 300; text-align: center; font-size: 1.5em;">Maintenance Request Log</div>
 		
-		<% if !(@user.visitors.first.nil?) %>
+		<% if !(@user.maintenances.first.nil?) %>
 			<table class="table">
 			  <thead>
 			    <tr>
 			      <th scope="col">#</th>
-			      <th scope="col">Visitor Name</th>
-			      <th scope="col">Date of Visit</th>
-			      <th scope="col">Arrival Time</th>
-			      <th scope="col">Car Plate</th>
+			      <th scope="col">Title</th>
+			      <th scope="col">Description</th>
+			      <th scope="col">Job Status</th>
 			    </tr>
 			  </thead>
 			  <tbody>
-				<% @user.visitors.each_with_index do |visitor, i| %>
+				<% @user.maintenances.each_with_index do |request, i| %>
 				    <tr>
 				      <th scope="row"><%= i+1 %></th>
-				      <td><%= visitor.name %></td>
-				      <td><%= visitor.visit_day %></td>
-				      <td><%= visitor.arrival_time %></td>
-				      <td><%= visitor.car_plate %></td>
+				      <td><%= request.title %></td>
+				      <td><%= request.description %></td>
+				      <td><%= request.status.capitalize %></td>
 				    </tr>
 				<% end %>
 			  </tbody>
 			</table>
 		<% else %>
-			<div style="text-align: center;">You do not have any registered visitors.</div>
+			<div style="text-align: center;">You do not have any maintenance requests.</div>
 		<% end %>
 		
 		<div style="text-align: center; padding-top: 100px;">
-		<%= button_to "Register a visitor", new_user_visitor_path(@user), class: "btn btn-danger", method: :get %></div>
+		<%= button_to "New maintenance request", new_maintenance_path, class: "btn btn-danger", method: :get %></div>
 
 		</div>
 	  </div>

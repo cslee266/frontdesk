@@ -6,7 +6,8 @@ class ReservationsController < ApplicationController
 		@reservation.facility = @facility
 		if @reservation.save
 			# ReservationJob.perform_now(@reservation.user, @listing.user, @reservation.id)
-			redirect_to current_user, notice: 'Reservation was successfully created.'
+			flash[:success] = 'Reservation was successfully created.'
+			redirect_to current_user
 		else
 			render "facilities/index"
 		end
@@ -30,13 +31,13 @@ class ReservationsController < ApplicationController
 	end
 
 	def index
-		@reservations = Reservation.all
+		@reservations = current_user.reservations
 	end
 
 	private
 
 	def find_facility
-		@facility = Facility.find(params[:facility_id])
+		@facility = Facility.find(params[:facility])
 	end
 
 	def reservation_params
