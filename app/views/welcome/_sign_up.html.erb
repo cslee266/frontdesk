@@ -1,0 +1,9 @@
+  <h5 style="text-align: center;">Sign Up, or Sign in to demo Front Desk's user interface </h5>
+              <div class="col-sm-8 col-md-offset-2">
+
+                <%= form_for @new_user do |form| %>
+                <%= render partial: '/users/form', object: form, :class => "form-control" %><br>
+
+                <%= form.submit "Sign Up", class:"btn btn-block btn-success" %>
+                  <% end %>
+              </div>

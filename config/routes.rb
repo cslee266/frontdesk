@@ -3,6 +3,10 @@ Rails.application.routes.draw do
 
   get 'welcome/index'
 
+  get 'welcome/about'
+
+  get 'welcome/features'
+
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
 
