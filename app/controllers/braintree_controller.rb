@@ -1,7 +1,15 @@
 class BraintreeController < ApplicationController
+
   def new
+     @user = current_user
   	@client_token = Braintree::ClientToken.generate
   end
+
+  def paid
+    flash[:success] = "Payment successful."
+    @user = current_user
+  end
+
 
   def checkout
 	nonce_from_the_client = params[:checkout_form][:payment_method_nonce]
