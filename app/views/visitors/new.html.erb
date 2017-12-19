@@ -1,0 +1,38 @@
+<div class="animsition"> 
+  <%= render partial: '/welcome/navbar' %>
+
+<div class="container-fluid" >
+  <div class="row">
+     
+    <div class="col-sm-6" >
+      <div style="margin-top: 1em; margin-left: 0px; padding-left: 0px;">
+       <%= render partial: '/welcome/tiledMenu'%>
+      </div> 
+
+        <div class="col-sm-4" style="border-left: 1.5px solid; border-color: grey; margin-top: 5em;" >
+		
+		<div style="color: black; font-family: 'Roboto', sans-serif;font-weight: 300; text-align: center; font-size: 1.5em;">Visitor Registration</div>
+
+		<%= form_for @visitor, url: user_visitors_path(@user) do |f| %>
+		  <%= f.label :name %>
+		  <%= f.text_field :name, class:"form-control" %><br>
+
+		  <%= f.label :visit_day %>
+		  <%= f.date_field :visit_day, class:"form-control" %><br>
+
+		  <%= f.label :arrival_time %>
+		  <%= f.time_field :arrival_time, class:"form-control" %><br>
+
+		  <%= f.label :car_plate %>
+		  <%= f.text_field :car_plate, class:"form-control" %><br>
+
+		  <%= f.submit "Register Visitor", class: "btn btn-danger" %>
+		<% end %>
+
+		</div>
+	  </div>
+	</div>
+</div>
+</div>
+
+<%= render partial: '/welcome/footer' %>

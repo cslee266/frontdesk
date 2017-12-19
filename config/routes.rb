@@ -27,13 +27,11 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
   end
 
-  resources :facilities, only: [:index] do
-    resource :reservations, only: [:create]
-  end
+  resources :facilities, only: [:index]
+    
+  resources :reservations, only: [:create, :index]
 
-  resource :reservations, only: [:index]
-
-  resource :maintenances
+  resources :maintenances
 
   post 'braintree/checkout'
   
