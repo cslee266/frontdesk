@@ -37,6 +37,14 @@
   <% @s_background = "https://education.kilroy.net/media/5107735/curtin-singapore-skyline.jpg" %>
 <% end %>
 
+<% url = "https://newsapi.org/v2/top-headlines?"\
+      "sources=bbc-news&"\
+      "apiKey=#{ENV["NEWS_API_KEY"]}" %>
+<% req = open(url) %>
+<% response_body = open(url).read %>
+<% json_data = JSON.load(response_body) %>
+<% articles = json_data["articles"] %>
+
 <div class="container dynamicTile" style="width: 530px;">
           
           <div class="row ">
@@ -84,9 +92,11 @@
                       <div class="item active">
                          <img src="https://cbsnewyork.files.wordpress.com/2016/12/category_weather_500x500.png?w=310&h=310&crop=1"/>
                       </div>
+
                       <div class="item" style="">
                          <h3 style="color: white; padding-left: .25em; font-weight: 300; font-family: 'Roboto', sans-serif;"> <%= @city %></h3><h4 style="color: white; padding-left: .75em; font-weight: 400; font-family: 'Roboto', sans-serif;">currently:</h4><h4 style="color: white; padding-left: .75em; font-weight: 400;  font-family: 'Roboto', sans-serif;"> temp: <%= @celsius %>° <br><%= @cloudtype %> <br>wind speed: <%= @speed%></h4> 
                       </div>
+
                       <div class="item" >
                       <!--   <div class="container-fluid"> -->
                           <img style="height:100%" src="<%=@s_background%>"/>
@@ -95,7 +105,8 @@
                            </div>
                          <!--  </div>  -->
                       </div>
-                      </div> 
+                    </div> 
+
                    </div>
                     <% end %>  
               </div>
@@ -117,24 +128,32 @@
                 <% end %>  
               </div>
             </div>
+
+
+
               <div class=" col-xs-4">
-              <%= link_to root_path, :class => "animsition-link" do %> 
                 <div id="tile5" class="tile">
-                 
+                  <%= link_to "http://edition.cnn.com/", :class => "animsition-link" do %> 
                    <div class="carousel slide" data-ride="carousel">
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
-                      <div class="item active">
-                        <img src="http://handsontek.net/demoimages/tiles/neews.png" class="img-responsive"/>
-                      </div>
-                      <div class="item">
-                        <img src="http://handsontek.net/demoimages/tiles/neews2.png" class="img-responsive"/>
-                      </div>
+                        <div class="item active">
+                          <img src="http://handsontek.net/demoimages/tiles/neews.png" class="img-responsive"/>
+                        </div>
+                        <% articles[0..2].each do |article| %>
+                        <div class="item">
+                          <img style="height:80%" src=<%= article["urlToImage"] %> class="img-responsive"/>
+                           <div style="top: .1em; position: absolute;">
+                            <h6 style="color: white; padding-left: .75em; margin-top: 11.25em; font-weight: 400;  font-family: 'Roboto', sans-serif;"><%= article["title"] %></h6> 
+                           </div>
+                        </div>
+                      <% end %>
                     </div>
                   </div>
-                <% end %>  
+                  <% end %>
               </div>
             </div>
+
             <div class=" col-xs-4">
               <div id="tile6" class="tile">
                  <%= link_to facilities_path, :class => "animsition-link" do %> 
@@ -146,7 +165,7 @@
                         <img src="http://www.pvhc.net/img46/fsvxlzqocyhmrblzvehl.png" class="img-responsive"/> 
                          <!-- <img src="http://www.pvhc.net/img46/fsvxlzqocyhmrblzvehl.png" class="img-responsive"/> -->
                       </div>
-                     <div class="item">
+                      <div class="item">
                         <h3 class="tilecaption" style="font-family: 'Roboto', sans-serif;">Reserve a Space!</h3>
                       </div>
                     </div>
@@ -234,4 +253,4 @@
         </div>  
     </div> <!-- end of carousel  --> 
 
-
+<% end %>
