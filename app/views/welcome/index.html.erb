@@ -71,7 +71,7 @@
           </div>
             <% unless signed_in? %>
           <%= render partial: '/welcome/sign_up'%>
-          <div class="col-md-8 col-md-offset-2">
+          <div class="col-md-8 col-md-offset-2" id="signup">
           <button href="/auth/facebook", class="loginBtn loginBtn--facebook">Facebook</button>
           <button href="/auth/google_oauth2", class="loginBtn loginBtn--google" style="letter-spacing: .04em;">Google+ </button>
         </div>

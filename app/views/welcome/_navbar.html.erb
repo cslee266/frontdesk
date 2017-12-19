@@ -15,6 +15,9 @@
          <li ><a href="/">Front Desk</a></li>
         <li><a href="/welcome/about">About</a></li>
         <li><a href="/welcome/features">Features</a></li>
+        <% unless signed_in? %>
+        <li><a href="#signup">Sign Up!</a></li>
+        <% end %>
       </ul>
 
         <ul class="nav navbar-nav navbar-right">
