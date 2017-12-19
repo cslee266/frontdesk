@@ -81,13 +81,13 @@
                          <img src="https://cbsnewyork.files.wordpress.com/2016/12/category_weather_500x500.png?w=310&h=310&crop=1"/>
                       </div>
                       <div class="item" style="">
-                         <h3 style="color: white; padding-left: .25em; font-weight: 300; font-family: 'Roboto', sans-serif;"> <%= @city %></h3><h4 style="color: white; padding-left: .75em; font-weight: 400; font-family: 'Roboto', sans-serif;">currently:</h4><h4 style="color: white; padding-left: .75em; font-weight: 400;  font-family: 'Roboto', sans-serif;"> temp: <%= @celsius %>° <br><%= @cloudtype %> <br>wind speed: <%= @speed%></h4> 
+                         <h3 style="color: white; padding-left: .25em; font-weight: 300; font-family: 'Roboto', sans-serif;"> <%= @city %></h3><h4 style="color: white; padding-left: .75em; font-weight: 400; font-family: 'Roboto', sans-serif;">currently:</h4><h4 style="color: white; padding-left: .75em; font-weight: 400;  font-family: 'Roboto', sans-serif;"> temp: <%= @celsius.round %>° <br><%= @cloudtype %> <br>wind speed: <%= @speed%></h4> 
                       </div>
                       <div class="item" >
                       <!--   <div class="container-fluid"> -->
                           <img style="height:100%" src="<%=@s_background%>"/>
                             <div style="top: .1em; position: absolute;">
-                             <h3 style="color: white; padding-left: .25em; font-weight: 300; font-family: 'Roboto', sans-serif;"> Singapore</h3><h4 style="color: white; padding-left: .75em; font-weight: 400; font-family: 'Roboto', sans-serif;">currently:</h4><h5 style="color: white; padding-left: .75em; font-weight: 400;  font-family: 'Roboto', sans-serif;"> temp: <%= @s_celsius %>° <br><%= @s_cloudtype %> <br>wind speed: <%= @s_speed%></h5> 
+                             <h3 style="color: white; padding-left: .25em; font-weight: 300; font-family: 'Roboto', sans-serif;"> Singapore</h3><h4 style="color: white; padding-left: .75em; font-weight: 400; font-family: 'Roboto', sans-serif;">currently:</h4><h5 style="color: white; padding-left: .75em; font-weight: 400;  font-family: 'Roboto', sans-serif;"> temp: <%= @s_celsius.round %>° <br><%= @s_cloudtype %> <br>wind speed: <%= @s_speed%></h5> 
                            </div>
                          <!--  </div>  -->
                       </div>
@@ -114,21 +114,25 @@
               </div>
             </div>
               <div class=" col-xs-4">
-     
                 <div id="tile5" class="tile">
-                 
+                  <%= link_to "http://edition.cnn.com/", :class => "animsition-link" do %> 
                    <div class="carousel slide" data-ride="carousel">
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
-                      <div class="item active">
-                        <img src="http://handsontek.net/demoimages/tiles/neews.png" class="img-responsive"/>
-                      </div>
-                      <div class="item">
-                        <img src="http://handsontek.net/demoimages/tiles/neews2.png" class="img-responsive"/>
-                      </div>
+                        <div class="item active">
+                          <img src="http://handsontek.net/demoimages/tiles/neews.png" class="img-responsive"/>
+                        </div>
+                        <% articles[0..2].each do |article| %>
+                        <div class="item">
+                          <img style="height:80%" src=<%= article["urlToImage"] %> class="img-responsive"/>
+                           <div style="top: .1em; position: absolute;">
+                            <h6 style="color: white; padding-left: .75em; margin-top: 11.25em; font-weight: 400;  font-family: 'Roboto', sans-serif;"><%= article["title"] %></h6> 
+                           </div>
+                        </div>
+                      <% end %>
                     </div>
                   </div>
-
+                  <% end %>
               </div>
             </div>
             <div class=" col-xs-4">
