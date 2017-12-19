@@ -94,14 +94,14 @@
                       </div>
 
                       <div class="item" style="">
-                         <h3 style="color: white; padding-left: .25em; font-weight: 300; font-family: 'Roboto', sans-serif;"> <%= @city %></h3><h4 style="color: white; padding-left: .75em; font-weight: 400; font-family: 'Roboto', sans-serif;">currently:</h4><h4 style="color: white; padding-left: .75em; font-weight: 400;  font-family: 'Roboto', sans-serif;"> temp: <%= @celsius %>° <br><%= @cloudtype %> <br>wind speed: <%= @speed%></h4> 
+                         <h3 style="color: white; padding-left: .25em; font-weight: 300; font-family: 'Roboto', sans-serif;"> <%= @city %></h3><h4 style="color: white; padding-left: .75em; font-weight: 400; font-family: 'Roboto', sans-serif;">currently:</h4><h4 style="color: white; padding-left: .75em; font-weight: 400;  font-family: 'Roboto', sans-serif;"> temp: <%= @celsius.round %>° <br><%= @cloudtype %> <br>wind speed: <%= @speed%></h4> 
                       </div>
 
                       <div class="item" >
                       <!--   <div class="container-fluid"> -->
                           <img style="height:100%" src="<%=@s_background%>"/>
                             <div style="top: .1em; position: absolute;">
-                             <h3 style="color: white; padding-left: .25em; font-weight: 300; font-family: 'Roboto', sans-serif;"> Singapore</h3><h4 style="color: white; padding-left: .75em; font-weight: 400; font-family: 'Roboto', sans-serif;">currently:</h4><h5 style="color: white; padding-left: .75em; font-weight: 400;  font-family: 'Roboto', sans-serif;"> temp: <%= @s_celsius %>° <br><%= @s_cloudtype %> <br>wind speed: <%= @s_speed%></h5> 
+                             <h3 style="color: white; padding-left: .25em; font-weight: 300; font-family: 'Roboto', sans-serif;"> Singapore</h3><h4 style="color: white; padding-left: .75em; font-weight: 400; font-family: 'Roboto', sans-serif;">currently:</h4><h5 style="color: white; padding-left: .75em; font-weight: 400;  font-family: 'Roboto', sans-serif;"> temp: <%= @s_celsius.round %>° <br><%= @s_cloudtype %> <br>wind speed: <%= @s_speed%></h5> 
                            </div>
                          <!--  </div>  -->
                       </div>
