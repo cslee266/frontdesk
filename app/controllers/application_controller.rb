@@ -7,5 +7,6 @@ class ApplicationController < ActionController::Base
   
   require 'open_weather' 
 
-  
+  require 'open-uri'
+
 end
