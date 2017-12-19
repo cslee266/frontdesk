@@ -42,6 +42,14 @@
   <% @s_background = "https://education.kilroy.net/media/5107735/curtin-singapore-skyline.jpg" %>
 <% end %>
 
+<% url = "https://newsapi.org/v2/top-headlines?"\
+      "sources=bbc-news&"\
+      "apiKey=#{ENV["NEWS_API_KEY"]}" %>
+<% req = open(url) %>
+<% response_body = open(url).read %>
+<% json_data = JSON.load(response_body) %>
+<% articles = json_data["articles"] %>
+
 <div class="container dynamicTile" style="width: 530px;">
           
           <div class="row ">
