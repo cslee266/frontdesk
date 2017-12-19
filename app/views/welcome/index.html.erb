@@ -1,4 +1,7 @@
 
+<audio autoplay> 
+  <source src="http://cordo.free.fr/spf/Sons/DeskBell.wav">
+</audio>
 
 <div class="animsition"> 
 <div class="homescreen">
@@ -6,11 +9,7 @@
   <%= render partial: '/welcome/navbar' %>
 
   <div class="frontpage">
-    <!-- <div style="padding-top: 25em; padding-left: 40%;">
-      <a href="#about" style="display:block;  height:200px; width:200px"></a> this link is invisible, but does not work with animsation
-    </div> -->
-
-
+    
      <div class="downArrow bounce" id="arrow">    <!-- bouncing arrow -->
       <img width="40" height="40" alt="" src="http://comingjuly2017.isclubhouseforme.com/wp-content/uploads/2017/06/scroll-arrow.png" />
     </div> <!-- end of bouncing arrow -->
@@ -70,14 +69,26 @@
               <li>Further and customizable integration with developers </li>
             </ul>
           </div>
+            <% unless signed_in? %>
+          <%= render partial: '/welcome/sign_up'%>
+          <div class="col-md-8 col-md-offset-2">
+          <button href="/auth/facebook", class="loginBtn loginBtn--facebook">Facebook</button>
+          <button href="/auth/google_oauth2", class="loginBtn loginBtn--google" style="letter-spacing: .04em;">Google+ </button>
         </div>
+        <% end %> 
+          </div>
       </div>
     <div class="col-sm-5" >
       <div style="margin-top: 20em;">
-        <%= render partial: '/welcome/tiledMenu'%>
+        <% if signed_in? %>
+          <%= render partial: '/welcome/tiledMenu'%>
+        <% else %> 
+          <%= render partial: '/welcome/dummyTiledMenu'%>
+          <% end %>  
       </div> 
     </div>
 
 <%= render partial: '/welcome/footer' %>
+
 
 

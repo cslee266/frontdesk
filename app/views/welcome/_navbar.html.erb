@@ -8,31 +8,44 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#"><img alt="Brand" src="https://cdn4.iconfinder.com/data/icons/hotel-facilities-1/512/Special-request-512.png" style="width: 1em; height: 1em;"></a> 
+        <a class="navbar-brand" href="/"><img alt="Brand" src="https://cdn4.iconfinder.com/data/icons/hotel-facilities-1/512/Special-request-512.png" style="width: 1em; height: 1em;"></a> 
       </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Take the Tour!<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#about">Start the Tour!</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Demo the App!</a></li>
-              <li role="separator" class="divider"></li>
-            </ul>
-          </li>
-        </ul>
+         <li ><a href="/">Front Desk</a></li>
+        <li><a href="/welcome/about">About</a></li>
+        <li><a href="/welcome/features">Features</a></li>
+      </ul>
+
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">About</a></li>
-          <li><a href="#">Pricing</a></li>
-          <li><a href="#">Contact</a></li>
           <li><% if signed_in? -%>
-            <%= link_to t(".sign_out"), sign_out_path, method: :delete %>
-          <% else -%>
-            <%= link_to t(".sign_in"), sign_in_path %>
-          <% end -%> </li>  
+            <%= image_tag (current_user.avatar.thumb), :class => "round" %></li>
+
+            <li><%= link_to t(".sign_out"), sign_out_path, method: :delete %>
+          <% else -%></li> 
+
+          <li><%= form_for :session, url: session_path do |form| %>
+            <div class="text-field" style="margin-top: .5em; margin-right: .5em;">
+              
+              <%= form.text_field :email, type: 'email', :class => "form-control", :placeholder => "Email" %>
+            </div></li>
+
+           <li> <div class="password-field" style="margin-top: .5em; margin-right: .5em;">
+              
+              <%= form.password_field :password, :class => "form-control", :placeholder => "Password" %>
+            </div></li>
+
+            <li><div class="submit-field" style="margin-top: .5em;">
+              <%= form.submit :class => "btn btn-default"%>
+            </div></li>
+             <a href="/auth/facebook"><img src="http://www.iconninja.com/files/245/45/195/facebook-media-social-like-network-fb-icon.svg" style="width: 2.5em; height: 2.5em; margin:.5em; margin-right:.25em; padding:0px;" /></a> <a href="/auth/google_oauth2"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Google-plus-circle-icon-png.png" style="width: 2.2em; height: 2.2em; margin-top:.5em; margin-bottom:.5em; padding:0px;" /></a>
+            <% end %>
+             <% end %> 
+          
+
+
+         
+           
             </ul>
           </li>
         </ul>
