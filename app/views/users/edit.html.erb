@@ -8,13 +8,15 @@
        <%= render partial: '/welcome/tiledMenu'%>
       </div> 
 
-        <div class="col-sm-6" style="border-left: 1.5px solid; border-color: grey; margin-top: 5em;" >
+        <div class="col-sm-4" style="border-left: 1.5px solid; border-color: grey; margin-top: 5em;" >
             <div class="profile" >
                <h1 style="color: black;" >Your Profile</h1>
-                  <% if @user.avatar  %>
-                    <%= image_tag @user.avatar.thumb.to_s, class:"img-responsive", :style => "width: 25%; height: 25%;" %>  
+                  <% if @user[:avatar] == nil  %>
+                   <img src="https://www.sparklabs.com/forum/styles/comboot/theme/images/default_avatar.jpg" id="default_avatar" width="300" height="300" >
+                    
                   <% else %>
-                    <img src="https://www.sparklabs.com/forum/styles/comboot/theme/images/default_avatar.jpg" id="default_avatar" width="300" height="300" >
+                  <%= image_tag @user.avatar.thumb.to_s, class:"img-responsive", :style => "width: 25%; height: 25%;" %>  
+                   
                   <% end %> 
 
                   <%= form_for @user, html: { multipart: true } do |form| %>
