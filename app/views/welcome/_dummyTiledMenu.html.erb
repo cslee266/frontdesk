@@ -18,9 +18,9 @@
 <% s_temp = s_weatherall['main']%>
 <% @s_celsius = s_temp['temp']%>
 
-<% if Time.now.hour > 19 %>
+<% if Time.now.hour >= 19 %>
   <% @background = "https://marinis57.com/bymarinis/wp-content/uploads/2015/10/kuala-lumpur-skyline-wallpaper-4.jpg" %>
-<% elsif Time.now.hour < 6 %>
+<% elsif Time.now.hour <= 6 %>
   <% @background = "https://marinis57.com/bymarinis/wp-content/uploads/2015/10/kuala-lumpur-skyline-wallpaper-4.jpg" %>
 <% else  %>
   <% @background = "http://www.globalblue.com/destinations/malaysia/article434453.ece/BINARY/kuala_lumpur_skyline.jpg" %>
