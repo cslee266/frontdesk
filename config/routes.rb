@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'welcome/features'
 
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
-  resource :session, controller: "clearance/sessions", only: [:create]
+  resource :session, controller: "sessions", only: [:create]
 
   resources :users, controller: "users", only: [:create, :edit, :update, :show] do
     resources :password,
