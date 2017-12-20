@@ -6,7 +6,7 @@ class BraintreeController < ApplicationController
   end
 
   def paid
-    flash[:success] = "Payment successful."
+    # flash[:success] = "Payment successful."
     @user = current_user
   end
 

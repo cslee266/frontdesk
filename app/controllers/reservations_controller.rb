@@ -7,7 +7,7 @@ class ReservationsController < ApplicationController
 		if @reservation.save
 			# ReservationJob.perform_now(@reservation.user, @listing.user, @reservation.id)
 			flash[:success] = 'Reservation was successfully created.'
-			redirect_to current_user
+			redirect_to facilities_path
 		else
 			render "facilities/index"
 		end
