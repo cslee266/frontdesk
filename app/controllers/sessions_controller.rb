@@ -47,7 +47,8 @@ class SessionsController < Clearance::SessionsController
         redirect_back_or url_after_create
       else
         flash.now.notice = status.failure_message
-        redirect_to root_path
+        @new_user = User.new
+        render 'welcome/index'
       end
     end
   end
