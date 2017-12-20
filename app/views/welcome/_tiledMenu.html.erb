@@ -29,14 +29,6 @@
   <% @background = "http://www.globalblue.com/destinations/malaysia/article434453.ece/BINARY/kuala_lumpur_skyline.jpg" %>
 <% end %>
 
-<% if Time.now.hour > 19 %>
-  <% @s_background = "https://media.istockphoto.com/photos/singapore-city-skyline-at-night-picture-id149258651?k=6&m=149258651&s=612x612&w=0&h=cu75Zw44lNZY5PpTJZlsTtScS_HxZrGVNMaydz3R1NI=" %>
-<% elsif Time.now.hour < 6 %>
-  <% @s_background = "https://media.istockphoto.com/photos/singapore-city-skyline-at-night-picture-id149258651?k=6&m=149258651&s=612x612&w=0&h=cu75Zw44lNZY5PpTJZlsTtScS_HxZrGVNMaydz3R1NI=" %>
-<% else  %>
-  <% @s_background = "https://education.kilroy.net/media/5107735/curtin-singapore-skyline.jpg" %>
-<% end %>
-
 <% url = "https://newsapi.org/v2/top-headlines?"\
       "sources=bbc-news&"\
       "apiKey=#{ENV["NEWS_API_KEY"]}" %>
