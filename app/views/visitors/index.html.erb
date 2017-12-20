@@ -30,7 +30,7 @@
 				      <th scope="row"><%= i+1 %></th>
 				      <td><%= visitor.name %></td>
 				      <td><%= visitor.visit_day %></td>
-				      <td><%= visitor.arrival_time %></td>
+				      <td><%= visitor.arrival_time.strftime("%H:%M") %></td>
 				      <td><%= visitor.car_plate %></td>
 				    </tr>
 				<% end %>
