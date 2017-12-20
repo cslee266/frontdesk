@@ -21,10 +21,10 @@
 <% s_temp = s_weatherall['main']%>
 <% @s_celsius = s_temp['temp']%>
 
-<% if Time.now.hour > 11 %>
+<% if Time.zone.now.hour > 19 %>
   <% @background = "https://marinis57.com/bymarinis/wp-content/uploads/2015/10/kuala-lumpur-skyline-wallpaper-4.jpg" %>
    <% @s_background = "https://media.istockphoto.com/photos/singapore-city-skyline-at-night-picture-id149258651?k=6&m=149258651&s=612x612&w=0&h=cu75Zw44lNZY5PpTJZlsTtScS_HxZrGVNMaydz3R1NI=" %>
-<% elsif Time.now.hour < 22 %>
+<% elsif Time.zone.now.hour < 6 %>
   <% @background = "https://marinis57.com/bymarinis/wp-content/uploads/2015/10/kuala-lumpur-skyline-wallpaper-4.jpg" %>
    <% @s_background = "https://media.istockphoto.com/photos/singapore-city-skyline-at-night-picture-id149258651?k=6&m=149258651&s=612x612&w=0&h=cu75Zw44lNZY5PpTJZlsTtScS_HxZrGVNMaydz3R1NI=" %>
 <% else  %>
@@ -216,10 +216,10 @@
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
                       <div class="item active">
-                        <h3 class="tilecaption" style="font-family: 'Roboto', sans-serif;"><%= Time.now.strftime("%I:%M") %></h3>
+                        <h3 class="tilecaption" style="font-family: 'Roboto', sans-serif;"><%= Time.zone.now.strftime("%I:%M") %></h3>
                       </div>
                       <div class="item">
-                        <h3 class="tilecaption" style="font-family: 'Roboto', sans-serif;"><%= Time.now.strftime("%b %d, %Y") %></h3>
+                        <h3 class="tilecaption" style="font-family: 'Roboto', sans-serif;"><%= Time.zone.now.strftime("%b %d, %Y") %></h3>
                       </div>
                     </div>
                   </div>
